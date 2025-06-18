@@ -6,7 +6,7 @@ Other features include:
   2. A diagnostics screen for seeing specific stats of a specific motor (such as current, voltage, rpms, ect.)
   3. AND a separate settings menu for configuring different templates
 
-Latest Version: v0.0.5, Build #112
+Latest Version: v0.0.6, Build #120
 
 !!! THIS IS STILL IN DEVELOPMENT !!!
 !!! BUGS ARE/WILL BE PRESENT !!!
