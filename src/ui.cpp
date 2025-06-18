@@ -9,6 +9,7 @@ public:
   int screenID = 0;
   int xPressed = 0;
   int yPressed = 0;
+  int lastPressed[2] = 0;
 
   // arrays
   bool select[20] = { 0 };
@@ -39,11 +40,22 @@ public:
   4: settings menu
   */
 
+  // universial functions
+  void checkLastPressed() {
+    if (Brain.Screen.pressing()) {
+      lastPressed[0] = Brain.Screen.xPosition();
+      lastPressed[1] = Brain.Screen.yPosition();
+    } else {
+      lastPressed[0] = 0;
+      lastPressed[1] = 0;
+    }
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // screen 0
   void mainMenu() {
     Brain.Screen.printAt(175, 30, "M0T0R INTERACT");
-    Brain.Screen.printAt(0, 230, "v0.0.5, Build 112");
+    Brain.Screen.printAt(0, 230, "v0.0.6, Build 120");
     Brain.Screen.drawRectangle(50, 50, 170, 50);
     Brain.Screen.drawRectangle(250, 50, 170, 50);
     Brain.Screen.drawRectangle(50, 150, 170, 50);
@@ -56,8 +68,8 @@ public:
 
   // screen 0 buttons
   void mainMenuButton() {
-    xPressed = Brain.Screen.xPosition();
-    yPressed = Brain.Screen.yPosition();
+    xPressed = lastPressed[0];
+    yPressed = lastPressed[1];
     if ((xPressed >= 50 && xPressed <= 220) && (yPressed >= 50 && yPressed <= 100))
       screenID = 1;
     if ((xPressed >= 250 && xPressed <= 420) && (yPressed >= 50 && yPressed <= 100))
@@ -292,8 +304,8 @@ public:
   }
 
   void motorMovementSelectorButton() {
-    xPressed = Brain.Screen.xPosition();
-    yPressed = Brain.Screen.yPosition();
+    xPressed = lastPressed[0];
+    yPressed = lastPressed[1];
 
     // back to main menu button
     if ((xPressed >= 220 && xPressed <= 260) && (yPressed >= 120 && yPressed <= 150)) {
