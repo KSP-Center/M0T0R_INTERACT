@@ -4,6 +4,7 @@ public:
   int screenID;
   int xPressed;
   int yPressed;
+  int lastPressed[2];
 
   // arrays
   bool select[20];
@@ -32,6 +33,9 @@ public:
   3: motor diagnostics
   4: settings menu
   */
+
+  // universial functions
+  void checkLastPressed();
 
   // screen 0
   void mainMenu();
