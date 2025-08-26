@@ -48,6 +48,7 @@ int speed = 0; // units is rpm
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  ui.autoSelectorMenuUpdateLine();
 
   while(1) {
     switch(ui.screenID) {
@@ -132,10 +133,17 @@ int main() {
       case 3:
         // motor stats or diagnostics screen SELECTOR
         ui.motorDiagnosticsSelector();
+        ui.motorDiagnosticsSelectorButton();
         break;
       case 4:
         // motor stats or diagnostics screen VIEWER
         ui.motorDiagnosticsViewer();
+        ui.motorDiagnosticsViewerButton();
+        break;
+      case 5:
+        // auto selector
+        ui.autoSelectorMenu();
+        ui.autoSelectorMenuButton();
         break;
     }
 
